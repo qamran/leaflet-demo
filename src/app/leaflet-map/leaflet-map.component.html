@@ -1,1 +1,11 @@
-<p>leaflet-map works!</p>
+
+<div  id="map" [style.width]='Width' [style.height]='Height'>
+
+  <div    style="height: 100%; width: 100%;"
+          leaflet
+          [leafletOptions]="options"
+          [leafletLayersControl]="layersControl"
+          (leafletMapReady)="onMapReady($event)">
+  </div>
+
+</div>
