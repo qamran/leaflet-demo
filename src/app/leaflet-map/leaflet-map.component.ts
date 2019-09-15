@@ -44,7 +44,9 @@ export class LeafletMapComponent implements OnInit {
         }
       )
     };
-    this.overlayMaps = {};
+    this.overlayMaps = {
+      'Circle': L. circle([49.398750 , 8.672434], { radius: 5000 })
+    };
     this.Height = 800 + 'px';
     this.Width = '100%';
     this.center = L.latLng(49.443, 7.77161);
