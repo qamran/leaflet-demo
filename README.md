@@ -1,6 +1,11 @@
-# LeafletDemo
+# Leaflet Demo
 
 This project was created to demonstrate usage of leaflet library with Angular. It exhibites how to show maps inside Angular and add different kind of objects as layers on top of the map.
+
+## Core Technologies
+
+Angular 8.2.6
+Leaflet 
 
 ## Demo
 
