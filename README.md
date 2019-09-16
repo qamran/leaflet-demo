@@ -4,7 +4,7 @@ This project was created to demonstrate usage of leaflet library with Angular. I
 
 ## Core Technologies
 
-Angular 8.2.6
+Angular 8.2.6  
 Leaflet 
 
 ## Demo
