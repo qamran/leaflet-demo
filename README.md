@@ -6,6 +6,8 @@ This project was created to demonstrate usage of leaflet library with Angular. I
 
 Download the code. Run `ng serve --open` for a dev server. The app will automatically load on `http://localhost:4200/`.
 
+Or check the wiki page for screenshots. https://github.com/qamran/leaflet-demo/wiki
+
 ## Requirements
 
 Node should be installed.
