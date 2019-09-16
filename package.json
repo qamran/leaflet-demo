@@ -23,6 +23,8 @@
     "@asymmetrik/ngx-leaflet": "^4.0.0",
     "core-js": "^2.5.4",
     "leaflet": "^1.5.1",
+    "heatmap.js": "^2.0.5",
+    "leaflet-heatmap": "^1.0.0",
     "rxjs": "^6.5.3",
     "zone.js": "^0.10.2"
   },

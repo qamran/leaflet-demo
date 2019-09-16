@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 import {latLng, LatLng, tileLayer} from 'leaflet';
 import * as L from 'leaflet';
+declare var HeatmapOverlay;
 @Component({
   selector: 'app-leaflet-map',
   templateUrl: './leaflet-map.component.html',
@@ -18,6 +19,7 @@ export class LeafletMapComponent implements OnInit {
   corner1;
   corner2;
   bounds;
+  heatMapLayer;
 
   constructor() {
     const OpenStreetAttr =
@@ -55,12 +57,40 @@ export class LeafletMapComponent implements OnInit {
     const markerIcon = new generalIcon();
     const locationMarker = L.marker([ 49.398750 , 8.672434], {icon: markerIcon});
 
+    const heatmapdata = {
+      data: [
+        {lat: 49.447057436517056, lng: 7.7571002115249635, count: 500},
+        {lat: 49.44158436517056, lng: 7.75272002115249635, count: 500},
+        {lat: 49.447059436517056, lng: 7.7537002115249635, count: 500},
+        {lat: 49.4427067436517056, lng: 7.75475002115249635, count: 500},
+        {lat: 49.44570627436517056, lng: 7.7567002115249635, count: 500},
+        {lat: 50.75, lng: -1.55, count: 1},
+        {lat: -37.8210922667, lng: 175.2209316333, count: 200},
+        {lat: -37.82110819833, lng: 175.2213903167, count: 300},
+        {lat: -37.8211946833, lng: 175.2213655333, count: 100},
+        {lat: -37.8209458667, lng: 175.2214051333, count: 50},
+        {lat: -37.8208292333, lng: 175.2214374833, count: 700},
+        {lat: -37.8325816, lng: 175.2238798667, count: 537},
+        {lat: -37.8096336833, lng: 175.2223743833, count: 176}
+      ]};
+
+    this.heatMapLayer = new HeatmapOverlay({
+      radius: 10,
+      maxOpacity: 0.8,
+      useLocalExtrema: true,
+      latField: 'lat', // attribute in json
+      lngField: 'lng', // attribute in json
+      valueField: 'count' // attribute in json
+    });
+    this.heatMapLayer.setData(heatmapdata);
+
     this.overlayMaps = {
       'Circle': L. circle([49.398750 , 8.672434], { radius: 5000 }),
       'Polygon': L.polygon([
         [ 49.992863, 8.247253 ], [ 49.487457, 8.466040 ], [ 49.872826, 8.651193 ], [50.110924, 8.682127 ]
       ]),
-      'Marker': locationMarker
+      'Marker': locationMarker,
+      'Heatmap': this.heatMapLayer
     };
     this.Height = 800 + 'px';
     this.Width = '100%';
